@@ -2,10 +2,13 @@ import Board from './Board';
 import React, { useState } from 'react';
 import { calculateWinner } from '../utils/helpers';
 
-const style= {
+const styles = {
   buttonContainerStyle: {
     margin: 'auto',
     width: '300px',
+  },
+  headerStyle: {
+    textAlign: 'center',
   },
 };
 
@@ -26,11 +29,12 @@ const Game = () => {
 
   return (
     <>
-    <Board onClick={handleClick} values={values} />
-    <div style={style.buttonContainerStyle}>
-      <p>{winner ? `Winner: ${winner}` : `Next Player: ${xIsNext ? 'X' : 'O'}`}</p>
-      <button onClick={() => setValues(Array(9).fill(null))}>Start Game</button>
-    </div>
+      <h1 style={styles.headerStyle}>Tic Tac Toe</h1>
+      <Board onClick={handleClick} values={values} />
+      <div className="Game-buttonContainer" style={styles.buttonContainerStyle}>
+        <p>{winner ? `Winner: ${winner}` : `Next Player: ${xIsNext ? 'X' : 'O'}`}</p>
+        <button onClick={() => setValues(Array(9).fill(null))}>Start Game</button>
+      </div>
     </>
   )
 };
