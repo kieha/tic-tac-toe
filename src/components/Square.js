@@ -6,6 +6,8 @@ const style = {
   border: '2px solid black',
   fontSize: '30px',
   fontWeight: '800',
+  height: '100px',
+  width: '100px',
 }
 
 const Square = ({ onClick, value }) => (
@@ -14,7 +16,11 @@ const Square = ({ onClick, value }) => (
 
 Square.propTypes = {
   onClick: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
+}
+
+Square.defaultProps = {
+  value: null,
 }
 
 export default Square;

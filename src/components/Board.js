@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Square from './Square';
 
@@ -9,18 +10,17 @@ const style = {
   width: '300px',
 }
 
-const Board = () => (
+const Board = ({ onClick, values }) => (
   <div style={style}>
-    <Square onClick={() => console.log('I WAS CLICKED 1')} value='1' />
-    <Square onClick={() => console.log('I WAS CLICKED 2')} value='2' />
-    <Square onClick={() => console.log('I WAS CLICKED 3')} value='3' />
-    <Square onClick={() => console.log('I WAS CLICKED 4')} value='4' />
-    <Square onClick={() => console.log('I WAS CLICKED 5')} value='5' />
-    <Square onClick={() => console.log('I WAS CLICKED 6')} value='6' />
-    <Square onClick={() => console.log('I WAS CLICKED 7')} value='7' />
-    <Square onClick={() => console.log('I WAS CLICKED 8')} value='8' />
-    <Square onClick={() => console.log('I WAS CLICKED 9')} value='9' />
+    {values.map((value, i) => (
+      <Square key={`Square-${i}`} onClick={() => onClick(i)} value={value} />
+      ))}
   </div>
 );
+
+Board.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  values: PropTypes.array.isRequired,
+}
 
 export default Board;
