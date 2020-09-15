@@ -1,12 +1,6 @@
+import Game from './components/Game';
 import React from 'react';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <div>Something</div>
-    </div>
-  );
-}
+const App = () => <Game />;
 
 export default App;
